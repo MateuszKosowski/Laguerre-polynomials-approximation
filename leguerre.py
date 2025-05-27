@@ -75,5 +75,19 @@ def calculate_c_coeffs(
 
     return c_k_list
 
+# Funkcja ta oblicza wartość wielomianu aproksymacyjnego w punkcie x
+def calculate_approximating_polynomial_value(
+        x_eval: float,
+        c_coefficients: list[float]
+    ) -> float:
 
+    n = len(c_coefficients) - 1
+
+    pn_x_value = 0.0
+    for k in range(n + 1):
+        c_k = c_coefficients[k]
+        l_k_at_x_eval = calculate_laguerre_polynomial_value(k, x_eval)
+        pn_x_value += c_k * l_k_at_x_eval
+
+    return pn_x_value
 
