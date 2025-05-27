@@ -91,3 +91,6 @@ def calculate_approximating_polynomial_value(
 
     return pn_x_value
 
+# TODO: Przekształcić P_N(x) = Σ (c_k*L_k(x)) do postaci potęgowej P_N(x) = Σ a_m * x^m.
+# TODO: Użyć hornera do obliczenia wartości wielomianu w punkcie x.
+
