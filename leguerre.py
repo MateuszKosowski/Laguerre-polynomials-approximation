@@ -106,7 +106,7 @@ def calculate_approximating_polynomial_value(
 
 def poly_multiply_by_x(p: list[float]) -> list[float]:
     #Np: [a, b, c] (ax^2+bx+c) -> [a, b, c, 0] (ax^3+bx^2+cx+0)
-    return p + [0.0]
+    return [0.0] + p
 
 def poly_multiply_by_scalar(p: list[float], scalar: float) -> list[float]:
     # Mnożenie wielomianu przez skalar
