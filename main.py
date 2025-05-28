@@ -1,4 +1,6 @@
 # Załóżmy, że importujesz wszystkie potrzebne funkcje z pliku leguerre.py
+import numpy as np
+
 from leguerre import (
     calculate_c_coeffs,
     calculate_approximating_polynomial_value,  # Twoja "stara" metoda sumy c_k * L_k(x)
@@ -11,20 +13,20 @@ from leguerre import (
 def main():
     # 1. Zdefiniuj funkcję do aproksymacji f(x)
     def function_to_approximate(x: float) -> float:
-        return x - 1.0  # f(x) = L_1(x)
+        # return x - 1.0  # f(x) = L_1(x)
         # return 1.0 # f(x) = L_0(x)
         # return x**2 - 4*x + 2.0 # f(x) = L_2(x)
-        # return np.sin(x)
+         return np.sin(x) + 2
 
     # 2. Parametry aproksymacji
     n_degree_approximation = 2  # Stopień wielomianu aproksymującego P_N(x)
     num_gauss_nodes_for_c_k = 30  # Liczba węzłów dla kwadratury Gaussa-Laguerre'a
 
     # Wybierzmy funkcję do opisu w printach
-    func_description = "x - 1.0"
+    #func_description = "x - 1.0"
     # func_description = "1.0 (czyli L_0(x))"
     # func_description = "x^2 - 4x + 2.0 (czyli L_2(x))"
-    # func_description = "sin(x)"
+    func_description = "sin(x) + 2"
 
     print(f"\n--- Test Aproksymacji Wielomianami Laguerre'a ---")
     print(f"Funkcja aproksymowana f(x) = {func_description}")
