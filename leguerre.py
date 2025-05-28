@@ -119,8 +119,7 @@ def poly_add(p1: list[float], p2: list[float]) -> list[float]:
     p2_extended = p2 + [0.0] * (max_len - len(p2))
     return [p1_extended[i] + p2_extended[i] for i in range(max_len)]
 
-def calculate_polynomial_coefficients_from_laguerre(
-        max_n: int) -> list[float]:
+def calculate_polynomial_coefficients_from_laguerre(max_n: int) -> list[float]: # Czyli te l_{k,0} itd
 
     # max_n - maksymalny stopień wielomianu, dla którego chcemy obliczyć współczynniki
     all_lk = []
@@ -167,7 +166,41 @@ def calculate_polynomial_coefficients_from_laguerre(
 
     return all_lk
 
+def create_coefficients_of_power_polynomial(
+        c_coefficients: list[float],
+        all_lk: list[list[float]]
+    ) -> list[float]:
 
+    n = len(c_coefficients) - 1  # Stopień wielomianu P_N(x)
+
+    # Lista na współczynniki wielomianu P_N(x) w postaci potęgowej
+    a_coeffs_list = [0.0] * (n + 1)
+
+    for m in range(n + 1):
+        current_a = 0.0
+        for k in range(m, n + 1):
+            c_k = c_coefficients[k]
+            l_k_m = all_lk[k][m]
+
+            current_a += c_k * l_k_m
+
+        a_coeffs_list[m] = current_a
+
+    return a_coeffs_list
 
 # TODO: Użyć hornera do obliczenia wartości wielomianu w punkcie x.
+
+def calculate_approximating_polynomial_value_by_horner(
+        x: float,
+        a_coefficients: list[float]
+    ) -> float:
+    result = 0.0
+    for coeff in reversed(a_coefficients):
+        result = result * x + coeff
+    return result
+
+
+
+
+
 
