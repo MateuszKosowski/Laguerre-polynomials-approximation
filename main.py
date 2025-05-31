@@ -64,6 +64,7 @@ AVAILABLE_FUNCTIONS = {
     "Trygonometryczna: cos(x)": trig_func_cos,
     "Trygonometryczna złożona: sin(x) + 2": lambda x: np.sin(x) + 2,
     "Wykładnicza: exp(-x/2)": exp_func_simple,
+    "Moduł |x - 5|": lambda x: abs_func(x - 5),  # |x-5|
     "Test: L_0*(x) = 1": custom_L0,
     "Test: L_1*(x) = x - 1": custom_L1,
     "Test: L_2*(x) = x^2 - 4x + 2": custom_L2,  # To samo co poly_func_example
@@ -168,7 +169,7 @@ n_degree_approximation = st.sidebar.slider(
 )
 num_gauss_nodes_for_c_k = st.sidebar.slider(
     "Liczba węzłów kwadratury Gaussa-Laguerre'a (dla c_k):",
-    min_value=2, max_value=10, value=4, step=1
+    min_value=2, max_value=30, value=10, step=1
 )
 
 # Parametry wykresu
