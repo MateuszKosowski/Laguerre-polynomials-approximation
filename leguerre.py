@@ -74,23 +74,6 @@ def calculate_c_coeffs(
 
     return c_k_list
 
-# Funkcja ta oblicza wartość wielomianu aproksymacyjnego w punkcie x
-def calculate_approximating_polynomial_value(
-        x_eval: float,
-        c_coefficients: list[float]
-    ) -> float:
-
-    n = len(c_coefficients) - 1
-
-    pn_x_value = 0.0
-    for k in range(n + 1):
-        c_k = c_coefficients[k]
-        l_k_at_x_eval = calculate_laguerre_polynomial_value(k, x_eval)
-        pn_x_value += c_k * l_k_at_x_eval
-
-    return pn_x_value
-
-# TODO: Przekształcić P_N(x) = Σ (c_k*L_k(x)) do postaci potęgowej P_N(x) = Σ a_m * x^m.
 # Każdy wielomian Laguerre'a L_k(x) można wyrazić jako wielomian w postaci potęgowej:
 # L_k(x) = l_{k,0} x^0 + l_{k,1} x^1 + l_{k,2} x^2 + ... + l_{k,k} x^k
     # Aby znaleźć współczynniki wielomianu L_i(x) na podstawie współczynników L_{i-1}(x) i L_{i-2}(x), wykonujemy następujące operacje na wielomianach:
@@ -187,8 +170,6 @@ def create_coefficients_of_power_polynomial(
         a_coeffs_list[m] = current_a
 
     return a_coeffs_list
-
-# TODO: Użyć hornera do obliczenia wartości wielomianu w punkcie x.
 
 def calculate_approximating_polynomial_value_by_horner(
         x: float,
