@@ -168,7 +168,7 @@ n_degree_approximation = st.sidebar.slider(
 )
 num_gauss_nodes_for_c_k = st.sidebar.slider(
     "Liczba węzłów kwadratury Gaussa-Laguerre'a (dla c_k):",
-    min_value=2, max_value=100, value=30, step=1
+    min_value=2, max_value=10, value=4, step=1
 )
 
 # Parametry wykresu
@@ -179,7 +179,7 @@ plot_x_max = st.sidebar.slider(
 )
 plot_points = st.sidebar.slider(
     "Liczba punktów na wykresie:",
-    min_value=50, max_value=1000, value=400, step=50
+    min_value=10, max_value=250, value=100, step=10
 )
 
 # Wyświetlanie informacji o wyborze
